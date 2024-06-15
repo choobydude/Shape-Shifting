@@ -31,10 +31,7 @@ namespace ShapeShifting
         }
         private void lookAt(Vector2 i_Target)
         {
-            Vector2 direction = i_Target - (Vector2)transform.position;
-            Vector2 clampedOffset = Vector2.ClampMagnitude(direction, m_RadiusLimit) / transform.lossyScale;
-
-            m_Visual.transform.localPosition = clampedOffset;
+            m_Visual.transform.position = (Vector2)transform.position + Vector2.ClampMagnitude(i_Target - (Vector2)transform.position, m_RadiusLimit);
         }
     }
 }
