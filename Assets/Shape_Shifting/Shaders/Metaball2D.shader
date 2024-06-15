@@ -1,10 +1,14 @@
-Shader "Unlit/GaussianBlur"
+Shader "Unlit/Metaball2D"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Radius ("Radius", Int) = 3
-        _Sigma ("Sigma", Float) = 1.0
+        _Radius ("Radius", Range(0,5)) = 3
+        _Sigma ("Sigma", Range(0,5)) = 1.0
+        _CutOff ("Alpha CutOff", Range(0,1)) = 0.5
+        _Color ("Color", Color) = (1,1,1,1)
+        _Stroke ("Stroke Alpha", Range(0,1)) = 0.1
+        _StrokeColor ("Stroke Color", Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -25,6 +29,10 @@ Shader "Unlit/GaussianBlur"
             float4 _MainTex_TexelSize;
             int _Radius;
             float _Sigma;
+            float4 _Color;
+            float _CutOff;
+            fixed _Stroke;
+            float4 _StrokeColor;
 
             struct appdata
             {
@@ -66,6 +74,15 @@ Shader "Unlit/GaussianBlur"
                 }
 
                 col /= weightSum;
+                clip(col.a - _CutOff);
+                if (col.a < _Stroke) 
+                {
+                    col = _StrokeColor;
+                } 
+                else 
+                {
+                    col *= _Color;
+                }
 
                 return col;
             }
