@@ -11,6 +11,7 @@ namespace ShapeShifting
             Container.BindInterfacesAndSelfTo<ResourceController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InputController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<RecordController>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ToolController>().AsSingle().NonLazy();
         }
     }
 }

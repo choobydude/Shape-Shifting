@@ -13,6 +13,7 @@ public class SignalsInstaller : MonoInstaller
         installSpawnSignals();
         installInputSignals();
         installRecordSignals();
+        installToolSignals();
     }
 
     private void installGameSignals()
@@ -49,6 +50,7 @@ public class SignalsInstaller : MonoInstaller
         Container.DeclareSignal<SelectLevelCommandSignal>().OptionalSubscriber();
         Container.DeclareSignal<OpenRVPageCommandSignal>().OptionalSubscriber();
         Container.DeclareSignal<CloseRVPageCommandSignal>().OptionalSubscriber();
+        Container.DeclareSignal<SelectToolCommandSignal>().OptionalSubscriber();
     }
 
     private void installResourceSignals()
@@ -67,5 +69,10 @@ public class SignalsInstaller : MonoInstaller
     private void installInputSignals()
     {
         Container.DeclareSignal<GroundClickedSignal>().OptionalSubscriber();
+    }
+
+    private void installToolSignals()
+    {
+        Container.DeclareSignal<ToolSelectedSignal>().OptionalSubscriber();
     }
 }
