@@ -8,7 +8,7 @@ namespace ShapeShifting
     {
         private void OnValidate()
         {
-            ToolType = eToolType.Paint;
+            ToolData.ToolType = eToolType.Paint;
         }
 
 

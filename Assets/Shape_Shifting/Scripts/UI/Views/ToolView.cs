@@ -1,29 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace ShapeShifting
 {
     public class ToolView : SignalButtonBase
     {
-        [SerializeField] Image m_Image;
+        [SerializeField] Image m_IconImage;
+        [SerializeField] Image m_ButtonImage;
+
         eToolType m_ToolType;
-        [SerializeField] GameObject m_SelectedVisual;
-        [SerializeField] GameObject m_DeselectedVisual;
-
-        public void Setup(eToolType i_ToolType, Sprite i_Icon)
-        {
-            m_ToolType = i_ToolType;
-            m_Image.sprite = i_Icon;
-        }
-
-        private void OnEnable()
-        {
-            subscribeSignals();
-        }
-        private void OnDisable()
-        {
-            unsubscribeSignals();
-        }
+        Color m_SelectedIconColor, m_DeselectedIconColor, m_SelectedButtonColor, m_DeselectedButtonColor;
 
         private void subscribeSignals()
         {
@@ -42,8 +29,8 @@ namespace ShapeShifting
 
         private void updateSelectedVisual(bool i_IsSelected)
         {
-            m_SelectedVisual.SetActive(i_IsSelected);
-            m_SelectedVisual.SetActive(!i_IsSelected);
+            m_IconImage.color = (i_IsSelected) ? m_SelectedIconColor : m_DeselectedIconColor;
+            m_ButtonImage.color = (i_IsSelected) ? m_SelectedButtonColor : m_DeselectedButtonColor;
         }
 
 
@@ -52,5 +39,62 @@ namespace ShapeShifting
             base.Click();
             SignalBus.TryFire(new SelectToolCommandSignal(m_ToolType));
         }
+
+        #region Pooling
+
+
+
+        private void onSpawn(
+            eToolType i_ToolType, 
+            Sprite i_Icon,
+            Color[] i_SelectedColors,
+            Color[] i_DeselectedColors)
+        {
+            m_ToolType = i_ToolType;
+            m_IconImage.sprite = i_Icon;
+            m_SelectedIconColor = i_SelectedColors[0];
+            m_DeselectedIconColor = i_SelectedColors[1];
+            m_SelectedButtonColor = i_DeselectedColors[0];
+            m_DeselectedButtonColor = i_DeselectedColors[1];
+
+            subscribeSignals();
+        }
+        private void onDespawn()
+        {
+            unsubscribeSignals();
+        }
+
+
+
+        public class Pool : MonoMemoryPool<eToolType, Sprite, Color[], Color[],ToolView>
+        {
+            protected override void Reinitialize(
+            eToolType i_ToolType,
+            Sprite i_Icon,
+            Color[] i_SelectedColors,
+            Color[] i_DeselectedColors,
+            ToolView i_Object)
+            {
+                base.Reinitialize(
+                    i_ToolType,
+                    i_Icon,
+                    i_SelectedColors,
+                    i_DeselectedColors,
+                    i_Object);
+
+                i_Object.onSpawn(
+                    i_ToolType,
+                    i_Icon,
+                    i_SelectedColors,
+                    i_DeselectedColors);
+            }
+            protected override void OnDespawned(ToolView i_Object)
+            {
+                base.OnDespawned(i_Object);
+                i_Object.onDespawn();
+            }
+        }
+
+        #endregion
     }
 }

@@ -8,7 +8,7 @@ namespace ShapeShifting
     {
         private void OnValidate()
         {
-            ToolType = eToolType.Grab;
+            ToolData.ToolType = eToolType.Grab;
         }
 
         public override void OnDeselect()
