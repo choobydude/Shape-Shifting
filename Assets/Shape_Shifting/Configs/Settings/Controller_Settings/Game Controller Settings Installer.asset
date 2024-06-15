@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eebe15f53b73214b8f1aefd532e53e5, type: 3}
+  m_Name: Game Controller Settings Installer
+  m_EditorClassIdentifier: 
+  m_Settings:
+    <StartGameCondition>k__BackingField: {fileID: 0}
+    <LoseGameCondition>k__BackingField: {fileID: 11400000, guid: 0368637998435ed4a882ce3f1195d5b3, type: 2}
+    <WinGameCondition>k__BackingField: {fileID: 11400000, guid: a4635251fc9a7074fbc860d6c3f3ed42, type: 2}
+    <TargetFrameRate>k__BackingField: 60

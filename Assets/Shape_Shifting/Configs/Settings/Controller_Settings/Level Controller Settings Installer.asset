@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009af34621066064595001d18ad34fbd, type: 3}
+  m_Name: Level Controller Settings Installer
+  m_EditorClassIdentifier: 
+  m_Settings:
+    LevelModels:
+    - {fileID: 11400000, guid: cfb59157b5961db478c1d6991852054c, type: 2}
+    - {fileID: 11400000, guid: 534b2e7c97f64cb4f8bd73d6b59aff2a, type: 2}
+    - {fileID: 11400000, guid: 19c1f893aead3de48af565f0a3512bdb, type: 2}
+    - {fileID: 11400000, guid: 4ac799900b863704aa3ffb3b4ef02eb7, type: 2}
+    - {fileID: 11400000, guid: ccf47ab173d8cb8499f3122d176366a5, type: 2}
+    - {fileID: 11400000, guid: 0d152b0f58466f84d88fcbdc706630b6, type: 2}
+    - {fileID: 11400000, guid: 8e5d066435ebec64bb00c9805028127e, type: 2}
+    - {fileID: 11400000, guid: 5c54530d8015aa4499fb618804067ec5, type: 2}
+    - {fileID: 11400000, guid: d34c9a2f48985ad498f884062203eae2, type: 2}
+    - {fileID: 11400000, guid: 223951ef0a64c89408c37e2f41531b5a, type: 2}
+    - {fileID: 11400000, guid: eec5f6aa8e69ee3438d97c5b69a89ef7, type: 2}
+    - {fileID: 11400000, guid: 1e7d532b6dea4384ea45d04fa79703ba, type: 2}
+    - {fileID: 11400000, guid: 4705c20cb5fbe44499235b07ea7b1c2b, type: 2}
