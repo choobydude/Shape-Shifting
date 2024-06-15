@@ -5,7 +5,7 @@ namespace ShapeShifting
 {
     public abstract class ToolModel : ScriptableObject
     {
-        [field: SerializeField] public ToolData ToolData;
+        [SerializeField] public ToolData ToolData;
 
         [Inject]
         protected SignalBus SignalBus;
@@ -43,6 +43,7 @@ namespace ShapeShifting
         public abstract void OnDeselect();
 
     }
+    [System.Serializable]
     public struct ToolData
     {
         public bool IsSelected;

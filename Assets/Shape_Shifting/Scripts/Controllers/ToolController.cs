@@ -1,7 +1,6 @@
 using ShapeShifting;
 using System;
 using System.Linq;
-using UnityEditor.iOS;
 using Zenject;
 
 public class ToolController : IInitializable, IDisposable
@@ -31,10 +30,24 @@ public class ToolController : IInitializable, IDisposable
 
     private void onToolSelectCommandSignal(SelectToolCommandSignal i_Signal)
     {
-        if(getTool(i_Signal.ToolType, out ToolModel o_Tool))
-            o_Tool.Select();
+        trySelectLevel(i_Signal.ToolType);
     }
 
+    private void trySelectLevel(eToolType i_ToolType)
+    {
+        if(getTool(i_ToolType,out ToolModel o_Tool))
+        {
+            if (o_Tool.ToolData.IsSelected)
+                return;
+
+            deselectSelectedTool();
+            o_Tool.Select();
+        }
+    }
+    private void deselectSelectedTool()
+    {
+        m_Settings.Tools.FirstOrDefault(model => model.ToolData.IsSelected)?.Deselect();
+    }
 
     private bool getTool(eToolType i_ToolType, out ToolModel i_Tool)
     {

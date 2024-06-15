@@ -14,6 +14,7 @@ public class SignalsInstaller : MonoInstaller
         installInputSignals();
         installRecordSignals();
         installToolSignals();
+        installShapeEditorSignals();
     }
 
     private void installGameSignals()
@@ -74,5 +75,13 @@ public class SignalsInstaller : MonoInstaller
     private void installToolSignals()
     {
         Container.DeclareSignal<ToolSelectedSignal>().OptionalSubscriber();
+    }
+
+    private void installShapeEditorSignals()
+    {
+        Container.DeclareSignal<EnterShapeEditorCommandSignal>().OptionalSubscriber();
+        Container.DeclareSignal<ExitShapeEditorCommandSignal>().OptionalSubscriber();
+        Container.DeclareSignal<ShapeEditorEnteredSignal>().OptionalSubscriber();
+        Container.DeclareSignal<ShapeEditorExitedSignal>().OptionalSubscriber();
     }
 }
