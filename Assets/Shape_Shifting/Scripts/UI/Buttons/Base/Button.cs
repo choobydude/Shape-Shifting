@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using System.Linq;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [RequireComponent(typeof(Image))]
     public class Button : MonoBehaviour,

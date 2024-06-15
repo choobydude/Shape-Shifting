@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [CreateAssetMenu(fileName = "New Level Model", menuName = "Models/Level Model")]
     public class LevelModel : ScriptableObject

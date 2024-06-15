@@ -1,5 +1,5 @@
 using UnityEngine;
-using WhackAMole;
+using ShapeShifting;
 using Zenject;
 
 [CreateAssetMenu(fileName = "New Animation Settings Installer", menuName = "Installers/Animation Settings Installer")]

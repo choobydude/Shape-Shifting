@@ -2,7 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class WarningPopup : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class ResourceView : UIElementBase
     {

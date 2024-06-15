@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class Timer : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public static class InputUtils
     {

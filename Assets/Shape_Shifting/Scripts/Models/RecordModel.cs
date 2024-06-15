@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
 
     [CreateAssetMenu(fileName = "New Record Model", menuName = "Models/Record Model")]

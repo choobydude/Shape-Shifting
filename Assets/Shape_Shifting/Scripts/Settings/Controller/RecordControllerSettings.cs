@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [System.Serializable]
     public class RecordControllerSettings

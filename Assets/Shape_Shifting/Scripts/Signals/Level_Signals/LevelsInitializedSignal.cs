@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class LevelsInitializedSignal
     {

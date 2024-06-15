@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public static class PoissonDiscSampling
     {

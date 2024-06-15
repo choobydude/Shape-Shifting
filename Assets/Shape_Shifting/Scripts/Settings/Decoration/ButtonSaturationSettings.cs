@@ -2,7 +2,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [System.Serializable]
     public class ButtonSaturationSettings

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class InputController : ITickable
     {
 
         #region Fields
-        [Inject]
+        [Inject(Id = "Main")]
         Camera m_Camera;
         [Inject]
         SignalBus m_SignalBus;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [CreateAssetMenu(fileName = "New Log Settings Installer", menuName = "Installers/Log Settings Installer")]
     public class LogSettingsInstaller : ScriptableObjectInstaller<LogSettingsInstaller>

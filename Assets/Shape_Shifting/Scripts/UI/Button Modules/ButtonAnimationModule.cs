@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [RequireComponent(typeof(Button))]
     public class ButtonAnimationModule : ButtonModuleBase

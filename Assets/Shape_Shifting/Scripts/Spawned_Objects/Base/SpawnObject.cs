@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class SpawnObject : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [ExecuteInEditMode]
     public class SafeAreaFitter : MonoBehaviour

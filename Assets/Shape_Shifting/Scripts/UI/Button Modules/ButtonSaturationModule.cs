@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [RequireComponent(typeof(Button))]
     public class ButtonSaturationModule : ButtonModuleBase

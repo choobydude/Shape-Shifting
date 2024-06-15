@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class PlayButton : SignalButtonBase
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public abstract class UIElementBase : MonoBehaviour
     {

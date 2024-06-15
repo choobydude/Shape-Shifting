@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [System.Serializable]
     [CreateAssetMenu(fileName = "New Resource Condition", menuName = "Conditions/Resource Condition")]

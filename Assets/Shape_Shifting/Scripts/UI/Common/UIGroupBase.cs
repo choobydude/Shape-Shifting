@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [RequireComponent(typeof(Canvas), typeof(GraphicRaycaster))]
     public abstract class UIGroupBase : UIElementBase

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [CreateAssetMenu(fileName = "New Level Controller Settings Installer", menuName = "Installers/Level Controller Settings Installer")]
     public class LevelControllerSettingsInstaller : ScriptableObjectInstaller<LevelControllerSettingsInstaller>

@@ -1,4 +1,4 @@
-using WhackAMole;
+using ShapeShifting;
 using Zenject;
 
 public class SignalsInstaller : MonoInstaller

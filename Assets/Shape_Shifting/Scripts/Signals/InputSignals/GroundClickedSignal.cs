@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class GroundClickedSignal
     {

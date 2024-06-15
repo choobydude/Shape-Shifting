@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class RecordController : IInitializable, IDisposable
     {

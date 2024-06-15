@@ -1,7 +1,7 @@
 using Zenject;
 using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [System.Serializable]
     public abstract class ConditionBase : ScriptableObject

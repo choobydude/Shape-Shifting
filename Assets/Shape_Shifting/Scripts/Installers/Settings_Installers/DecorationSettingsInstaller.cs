@@ -1,5 +1,5 @@
 using UnityEngine;
-using WhackAMole;
+using ShapeShifting;
 using Zenject;
 
 [CreateAssetMenu(fileName = "New Decoration Settings Installer", menuName = "Installers/Decoration Settings Installer")]

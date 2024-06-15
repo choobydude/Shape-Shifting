@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Log Settings Installer
   m_EditorClassIdentifier: 
   m_Settings:
-    <IsLogEnabled>k__BackingField: 1
+    <IsLogEnabled>k__BackingField: 0

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [CreateAssetMenu(fileName = "New Resource Controller Settings Installer", menuName = "Installers/Resource Controller Settings Installer")]
     public class ResourceControllerSettingsInstaller : ScriptableObjectInstaller<ResourceControllerSettingsInstaller>

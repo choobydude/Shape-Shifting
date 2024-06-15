@@ -2,7 +2,7 @@ using Zenject;
 using System.Linq;
 using System;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public class LevelController : IInitializable, IDisposable
     {

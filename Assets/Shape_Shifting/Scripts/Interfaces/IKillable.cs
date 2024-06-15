@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public interface IKillable 
     {

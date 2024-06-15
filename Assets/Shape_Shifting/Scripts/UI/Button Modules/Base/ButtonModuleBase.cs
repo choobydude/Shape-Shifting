@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     [RequireComponent(typeof(Button))]
     public abstract class ButtonModuleBase : MonoBehaviour

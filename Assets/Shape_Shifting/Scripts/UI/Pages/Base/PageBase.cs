@@ -1,7 +1,7 @@
 using System;
 using Zenject;
 
-namespace WhackAMole
+namespace ShapeShifting
 {
     public abstract class PageBase : UIGroupBase
     {

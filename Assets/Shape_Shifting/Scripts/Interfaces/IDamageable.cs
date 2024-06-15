@@ -1,4 +1,4 @@
-namespace WhackAMole
+namespace ShapeShifting
 {
     public interface IDamageable
     {
