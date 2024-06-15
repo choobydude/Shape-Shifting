@@ -18,8 +18,8 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: 4236af9f4bf23dd4faf4141997dba460, type: 3}
     CursonIcon: {fileID: 0}
     SelectedColors:
-    - {r: 1, g: 1, b: 1, a: 0.74509805}
-    - {r: 0.70072025, g: 0.3828765, b: 0.8490566, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.8053908, g: 0.390566, b: 1, a: 1}
     DeselectedColors:
-    - {r: 0, g: 0, b: 0, a: 0.2}
-    - {r: 0.37904978, g: 0.16547525, b: 0.4792453, a: 1}
+    - {r: 0, g: 0, b: 0, a: 0.29803923}
+    - {r: 0, g: 0, b: 0, a: 0.29803923}

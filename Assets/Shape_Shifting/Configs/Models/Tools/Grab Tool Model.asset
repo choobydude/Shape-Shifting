@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Grab Tool Model
   m_EditorClassIdentifier: 
   ToolData:
-    IsSelected: 0
+    IsSelected: 1
     ToolType: 0
     Icon: {fileID: 21300000, guid: e6d42abcf97b28e4cb71e21d60297cab, type: 3}
     CursonIcon: {fileID: 0}
     SelectedColors:
-    - {r: 1, g: 1, b: 1, a: 0.74509805}
-    - {r: 0.90943396, g: 0.79023737, b: 0.23164818, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 0.85760945, b: 0.20188677, a: 1}
     DeselectedColors:
-    - {r: 0, g: 0, b: 0, a: 0.2}
-    - {r: 0.6603774, g: 0.564659, b: 0.10840154, a: 1}
+    - {r: 0, g: 0, b: 0, a: 0.29803923}
+    - {r: 0, g: 0, b: 0, a: 0.29803923}
