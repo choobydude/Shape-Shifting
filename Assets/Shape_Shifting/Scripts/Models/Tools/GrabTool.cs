@@ -35,11 +35,11 @@ namespace ShapeShifting
                 m_BlobGroupStartPosition = m_BlobGroup.transform.position;
             }
         }
-        public override void OnDrag(Vector2 i_DragDeltaWorld, Vector2 i_MouseWorldPosition)
+        public override void OnMouse(Vector2 i_MouseWorldPosition)
         {
             if (m_BlobGroup)
             {
-                Vector2 offset = i_MouseWorldPosition - MouseWorldStartposition;
+                Vector2 offset = i_MouseWorldPosition - MouseWorldStartPosition;
                 m_BlobGroup.transform.position = m_BlobGroupStartPosition + offset * m_DragSensitivity;
             }
         }

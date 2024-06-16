@@ -20,9 +20,6 @@ namespace ShapeShifting
 
         public void Select()
         {
-            if (ToolData.IsSelected)
-                return;
-
             Cursor.SetCursor(ToolData.NormalCursonTexture, Vector2.zero, CursorMode.Auto);
 
             ToolData.IsSelected = true;
@@ -30,36 +27,34 @@ namespace ShapeShifting
             OnSelect();
         }
 
-        protected Vector2 MouseWorldStartposition;
+        protected Vector2 MouseWorldStartPosition;
         protected Vector2 MouseWorldPreviousPosition;
+        protected Vector2 MouseWorldPosition;
 
-        public void Update()
+        public virtual void Update()
         {
+            MouseWorldPosition = m_Camera.ScreenToWorldPoint((Vector2)Input.mousePosition);
+
             if (Input.GetMouseButtonDown(0))
             {
                 Cursor.SetCursor(ToolData.PressedCursonTexture, Vector2.zero, CursorMode.Auto);
 
-                MouseWorldStartposition = m_Camera.ScreenToWorldPoint((Vector2)Input.mousePosition);
-                OnMouseDown(MouseWorldStartposition);
+                MouseWorldStartPosition = MouseWorldPosition;
+                OnMouseDown(MouseWorldStartPosition);
             }
             else if (Input.GetMouseButton(0))
             {
-                Vector2 worldPos = m_Camera.ScreenToWorldPoint((Vector2)Input.mousePosition);
-                OnDrag(worldPos - MouseWorldPreviousPosition, worldPos);
+                OnMouse(MouseWorldPosition);
             }
             else if (Input.GetMouseButtonUp(0))
             {
                 Cursor.SetCursor(ToolData.NormalCursonTexture, Vector2.zero, CursorMode.Auto);
 
-                Vector2 worldPos = m_Camera.ScreenToWorldPoint((Vector2)Input.mousePosition);
-                OnMouseUp(worldPos);
+                OnMouseUp(MouseWorldPosition);
             }
         }
         public void Deselect()
         {
-            if (!ToolData.IsSelected)
-                return;
-
             Cursor.SetCursor(null,Vector2.zero, CursorMode.Auto);
 
             ToolData.IsSelected = false;
@@ -90,16 +85,15 @@ namespace ShapeShifting
         public abstract void OnDeselect();
 
 
-        public abstract void OnDrag(Vector2 i_DragDelta, Vector2 i_MousePosition);
-        public abstract void OnMouseDown(Vector2 i_MousePosition);
-        public abstract void OnMouseUp(Vector2 i_MousePosition);
+        public abstract void OnMouse(Vector2 i_MouseWorldPosition);
+        public abstract void OnMouseDown(Vector2 i_MouseWorldPosition);
+        public abstract void OnMouseUp(Vector2 i_MouseWorldPosition);
 
     }
     [System.Serializable]
     public struct ToolData
     {
         public bool IsSelected;
-        public float ToolRadius;
         public eToolType ToolType;
         [PreviewField] public Sprite Icon;
         [PreviewField] public Texture2D NormalCursonTexture;

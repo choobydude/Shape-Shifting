@@ -22,19 +22,20 @@ namespace ShapeShifting
         }
 
 
-        public override void OnDrag(Vector2 i_DragDelta, Vector2 i_MousePosition)
+        public override void OnMouseDown(Vector2 i_MouseWorldPosition)
         {
-            
+
         }
 
-        public override void OnMouseDown(Vector2 i_MousePosition)
+        public override void OnMouse(Vector2 i_MouseWorldPosition)
         {
-            
+
         }
 
-        public override void OnMouseUp(Vector2 i_MousePosition)
+
+        public override void OnMouseUp(Vector2 i_MouseWorldPosition)
         {
-            
+
         }
     }
 }

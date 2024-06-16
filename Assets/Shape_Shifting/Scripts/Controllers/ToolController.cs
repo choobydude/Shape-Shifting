@@ -71,10 +71,9 @@ namespace ShapeShifting
         {
             if (getTool(i_ToolType, out ToolModel o_Tool))
             {
-                if (o_Tool.ToolData.IsSelected)
-                    return;
+                if (!o_Tool.ToolData.IsSelected)
+                    deselectSelectedTool();
 
-                deselectSelectedTool();
                 o_Tool.Select();
             }
         }

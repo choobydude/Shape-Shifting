@@ -2950,7 +2950,7 @@ PrefabInstance:
     - target: {fileID: 6635571499354454745, guid: b4318628c34ec9649952be2a91e6977d, type: 3}
       propertyPath: m_ParentCanvas
       value: 
-      objectReference: {fileID: 1881782202}
+      objectReference: {fileID: 1603176208}
     - target: {fileID: 7963701118760689770, guid: b4318628c34ec9649952be2a91e6977d, type: 3}
       propertyPath: m_Name
       value: Game_Page
@@ -3139,11 +3139,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!223 &1881782202 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7781660038872843806, guid: b4318628c34ec9649952be2a91e6977d, type: 3}
-  m_PrefabInstance: {fileID: 1532128794}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1953902803 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6818372676922044803, guid: b4318628c34ec9649952be2a91e6977d, type: 3}
