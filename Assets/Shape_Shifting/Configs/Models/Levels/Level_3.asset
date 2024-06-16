@@ -15,8 +15,5 @@ MonoBehaviour:
   <Data>k__BackingField:
     Name: 3
     IsSelected: 0
-    Islocked: 0
-    SpawnPointCount: 5
-    MinMaxSpawnInterval: {x: 1.0601885, y: 1.8085569}
-    SpawnArea: {x: 5, y: 10}
-    SpawnPointRadius: 3.5
+    Islocked: 1
+    LevelPrefab: {fileID: 4889658883035101841, guid: 7f39a98577747124ea4d5fdc75342c67, type: 3}

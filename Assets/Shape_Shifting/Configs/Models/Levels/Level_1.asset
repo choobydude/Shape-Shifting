@@ -16,7 +16,4 @@ MonoBehaviour:
     Name: 1
     IsSelected: 1
     Islocked: 0
-    SpawnPointCount: 3
-    MinMaxSpawnInterval: {x: 1.164612, y: 2}
-    SpawnArea: {x: 5, y: 8}
-    SpawnPointRadius: 3.5
+    LevelPrefab: {fileID: 4889658883035101841, guid: 7f39a98577747124ea4d5fdc75342c67, type: 3}

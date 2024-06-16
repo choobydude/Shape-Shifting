@@ -12,6 +12,7 @@ namespace ShapeShifting
         [field: SerializeField] public LevelData Data { get; private set; }
         [Inject]
         SignalBus m_SignalBus;
+        GameObject m_LevelInstance;
         #endregion
 
         #region Events
@@ -29,9 +30,26 @@ namespace ShapeShifting
 
         #region Interaction
 
+        public void CreateLevel()
+        {
+            ClearLevel();
+            m_LevelInstance = Instantiate(Data.LevelPrefab);
+
+            Star star = m_LevelInstance.GetComponentInChildren<Star>();
+            star.Setup(m_SignalBus);
+        }
+        public void ClearLevel()
+        {
+            if (m_LevelInstance)
+            {
+                Destroy(m_LevelInstance);
+                m_LevelInstance = null;
+            }
+        }
+
         public void Select()
         {
-            if (Data.IsSelected || Data.Islocked)
+            if (Data.Islocked)
                 return;
 
             LevelData modifiedData = Data;
@@ -44,9 +62,6 @@ namespace ShapeShifting
 
         public void Deselect()
         {
-            if (!Data.IsSelected)
-                return;
-
             LevelData modifiedData = Data;
             modifiedData.IsSelected = false;
             Data = modifiedData;

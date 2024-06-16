@@ -1,6 +1,7 @@
 using Zenject;
 using System.Linq;
 using System;
+using UnityEngine;
 
 namespace ShapeShifting
 {
@@ -11,6 +12,7 @@ namespace ShapeShifting
         LevelControllerSettings m_Settings;
         [Inject]
         SignalBus m_SignalBus;
+        LevelModel m_Level;
 
         #endregion
 
@@ -20,6 +22,7 @@ namespace ShapeShifting
         {
             subscribeCommandSignals();
             m_SignalBus.TryFire(new LevelsInitializedSignal(m_Settings.LevelModels.Select(model => model.Data).ToList()));
+            getSelectedLevel().Select();
         }
 
         public void Dispose()
@@ -33,16 +36,45 @@ namespace ShapeShifting
         private void subscribeCommandSignals()
         {
             m_SignalBus.Subscribe<SelectLevelCommandSignal>(trySelectLevel);
+            m_SignalBus.Subscribe<LevelSelectedSignal>(onLevelSelected);
+            m_SignalBus.Subscribe<GameUnloadedSignal>(unloadLevel);
         }
 
         private void unsubscribeCommandSignals()
         {
             m_SignalBus.TryUnsubscribe<SelectLevelCommandSignal>(trySelectLevel);
+            m_SignalBus.TryUnsubscribe<LevelSelectedSignal>(onLevelSelected);
+            m_SignalBus.TryUnsubscribe<GameUnloadedSignal>(unloadLevel);
+        }
+        private void unloadLevel()
+        {
+            if (m_Level)
+                m_Level.ClearLevel();
+            getSelectedLevel().ClearLevel();
         }
 
         #endregion
 
         #region Level Control Methods
+
+        private void onLevelSelected(LevelSelectedSignal i_Signal)
+        {
+            cleanPreviousLevel();
+
+            m_Level = getSelectedLevel();
+            if(m_Level)
+                m_Level.CreateLevel();
+        }
+
+        private void cleanPreviousLevel()
+        {
+            m_Level?.ClearLevel();
+        }
+
+        private LevelModel getSelectedLevel()
+        {
+            return m_Settings.LevelModels.FirstOrDefault(model => model.Data.IsSelected);
+        }
 
         private void trySelectLevel(SelectLevelCommandSignal i_Signal)
         {
