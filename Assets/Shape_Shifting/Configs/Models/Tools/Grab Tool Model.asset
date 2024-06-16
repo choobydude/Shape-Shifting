@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToolData:
     IsSelected: 1
+    ToolRadius: 0
     ToolType: 0
-    Icon: {fileID: 21300000, guid: e6d42abcf97b28e4cb71e21d60297cab, type: 3}
-    CursonIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 0f1e09ba41bc84242935ea144fe38b8d, type: 3}
+    NormalCursonTexture: {fileID: 2800000, guid: 5109edc7bf5175249bc2b8847987b4fd, type: 3}
+    PressedCursonTexture: {fileID: 2800000, guid: ec38438ab8a591e46957e85be78e45e9, type: 3}
     SelectedColors:
     - {r: 1, g: 1, b: 1, a: 1}
     - {r: 1, g: 0.85760945, b: 0.20188677, a: 1}
     DeselectedColors:
     - {r: 0, g: 0, b: 0, a: 0.29803923}
     - {r: 0, g: 0, b: 0, a: 0.29803923}
+  m_DragSensitivity: 1
