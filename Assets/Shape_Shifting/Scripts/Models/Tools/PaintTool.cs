@@ -64,7 +64,7 @@ namespace ShapeShifting
                 return;
 
             Blob blob = BlobGroup.GetClosestBlob(i_MouseWorldPosition, m_PreviewBlob.transform.localScale.x / 2, out float o_DistanceBetween);
-            if (Vector3.Distance(MouseWorldPosition, MouseWorldPreviousPosition) >= m_DistanceThreshold)
+            if (o_DistanceBetween <= 0 && Vector3.Distance(MouseWorldPosition, MouseWorldPreviousPosition) >= m_DistanceThreshold)
                 paintBlob(i_MouseWorldPosition);
         }
 
@@ -79,7 +79,7 @@ namespace ShapeShifting
 
         public override void OnMouseDown(Vector2 i_MouseWorldPosition)
         {
-
+            tryPaintBlob(i_MouseWorldPosition);
         }
 
         public override void OnMouse(Vector2 i_MouseWorldPosition)

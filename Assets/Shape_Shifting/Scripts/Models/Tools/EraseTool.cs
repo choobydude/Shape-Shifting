@@ -63,7 +63,7 @@ namespace ShapeShifting
 
         public override void OnMouseDown(Vector2 i_MouseWorldPosition)
         {
-
+            tryErase(i_MouseWorldPosition);
         }
 
         public override void OnMouse(Vector2 i_MouseWorldPosition)

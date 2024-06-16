@@ -26,7 +26,7 @@ MonoBehaviour:
     - {r: 0, g: 0, b: 0, a: 0.29803923}
   m_BlobPrefab: {fileID: -2737019091462376793, guid: d6cd73743e8dcf248b87574f442c2852, type: 3}
   m_PreviewBlobPrefab: {fileID: 633108734284531046, guid: b5f3d6b4ff7d3024794b767913c51971, type: 3}
-  m_BlobMinScale: 1.5
+  m_BlobMinScale: 1.2
   m_BlobMaxScale: 5.5
   m_ScrollSensitivity: 10
   m_DistanceThreshold: 0.02

@@ -11,10 +11,29 @@ namespace ShapeShifting
         [ShowInInspector, ReadOnly] private List<Blob> m_Blobs = new List<Blob>();
         [SerializeField] private Blob m_DefaultBlobPrefab;
 
+        [SerializeField] Transform m_GeometryCenter;
+ 
         private void OnEnable()
         {
             spawnDefaultBlob();
             DisablePhysics();
+        }
+
+        private void Update()
+        {
+            calculateGeometryCenter();
+        }
+
+        private void calculateGeometryCenter()
+        {
+            Vector2 pos = Vector3.zero;
+
+            foreach (Blob blob in m_Blobs)
+                pos += (Vector2)blob.transform.position;
+
+            pos /= m_Blobs.Count;
+
+            m_GeometryCenter.position = pos;
         }
 
         private void spawnDefaultBlob()

@@ -1,5 +1,6 @@
 ﻿using System;
 using Zenject;
+using Cinemachine;
 using UnityEngine;
 
 namespace ShapeShifting
@@ -8,6 +9,12 @@ namespace ShapeShifting
     {
         [Inject]
         SignalBus m_SignalBus;
+        [Inject]
+        BlobGroup m_BlobGroup;
+        [Inject(Id = "Shape_Editor")]
+        CinemachineVirtualCamera m_ShapeEditorCamera;
+        [Inject(Id = "Shape_Follower")]
+        CinemachineVirtualCamera m_ShapeFollowerCamera;
 
         public void Initialize()
         {
@@ -33,10 +40,16 @@ namespace ShapeShifting
         private void onGameStarted()
         {
             m_SignalBus.TryFire<ShapeEditorEnteredSignal>();
+            m_ShapeEditorCamera.Priority = 10;
+            m_ShapeFollowerCamera.Priority = 1;
         }
         private void onExitShapeEditorCommand()
         {
-            m_SignalBus.TryFire<ExitShapeEditorCommandSignal>();
+            m_SignalBus.TryFire<ShapeEditorExitedSignal>();
+            m_ShapeEditorCamera.Priority = 1;
+            m_ShapeFollowerCamera.Priority = 10;
+            m_BlobGroup.EnablePhysics();
         }
+
     }
 }
