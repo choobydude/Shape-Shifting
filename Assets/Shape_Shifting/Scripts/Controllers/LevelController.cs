@@ -38,6 +38,8 @@ namespace ShapeShifting
             m_SignalBus.Subscribe<SelectLevelCommandSignal>(trySelectLevel);
             m_SignalBus.Subscribe<LevelSelectedSignal>(onLevelSelected);
             m_SignalBus.Subscribe<GameUnloadedSignal>(unloadLevel);
+            m_SignalBus.Subscribe<GameStartedSignal>(onGameStarted);
+
         }
 
         private void unsubscribeCommandSignals()
@@ -45,12 +47,26 @@ namespace ShapeShifting
             m_SignalBus.TryUnsubscribe<SelectLevelCommandSignal>(trySelectLevel);
             m_SignalBus.TryUnsubscribe<LevelSelectedSignal>(onLevelSelected);
             m_SignalBus.TryUnsubscribe<GameUnloadedSignal>(unloadLevel);
+            m_SignalBus.TryUnsubscribe<GameStartedSignal>(onGameStarted);
+        }
+
+        private void onGameStarted()
+        {
+            if (m_Level)
+                return;
+
+            cleanPreviousLevel();
+
+            m_Level = getSelectedLevel();
+            if (m_Level)
+                m_Level.CreateLevel();
         }
         private void unloadLevel()
         {
             if (m_Level)
                 m_Level.ClearLevel();
             getSelectedLevel().ClearLevel();
+            m_Level = null;
         }
 
         #endregion

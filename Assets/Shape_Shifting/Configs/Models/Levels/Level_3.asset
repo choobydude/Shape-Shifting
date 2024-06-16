@@ -16,4 +16,4 @@ MonoBehaviour:
     Name: 3
     IsSelected: 0
     Islocked: 1
-    LevelPrefab: {fileID: 4889658883035101841, guid: 7f39a98577747124ea4d5fdc75342c67, type: 3}
+    LevelPrefab: {fileID: 4889658883035101841, guid: 88d19dc4b82599f4a9fede09223f5526, type: 3}
