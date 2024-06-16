@@ -1,5 +1,4 @@
-﻿using Cinemachine;
-using System;
+﻿using System;
 using Zenject;
 
 namespace ShapeShifting

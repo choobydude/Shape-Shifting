@@ -11,9 +11,7 @@ namespace ShapeShifting
         [SerializeField, ShowIf(nameof(m_IsLookAtPosition))] Vector2 m_LookAtPosition;
         [SerializeField] Transform m_Visual;
         [SerializeField] float m_RadiusLimit;
-        [Inject(Id = "Main")]
-        Camera m_Camera;
-
+        Camera m_Camera => Camera.main;
 
         private void Update()
         {

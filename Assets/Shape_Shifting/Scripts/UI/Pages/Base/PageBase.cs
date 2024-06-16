@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using Zenject;
 
 namespace ShapeShifting
@@ -12,10 +13,9 @@ namespace ShapeShifting
         #endregion
 
         #region Lifecycle Methods
-        protected override void Awake()
+        public void Setup()
         {
             subscribeSignals();
-            base.Awake();
         }
         private void OnDestroy()
         {

@@ -6,13 +6,13 @@ namespace ShapeShifting
     public abstract class UIElementBase : MonoBehaviour
     {
         #region Fields
-        public bool IsVisible { get; private set; }
+        public bool IsVisible { get; private set; } = false;
         #endregion
 
         #region Mono Methods
         protected virtual void Awake()
         {
-            IsVisible = gameObject.activeInHierarchy;
+
         }
         #endregion
 

@@ -23,7 +23,7 @@ namespace ShapeShifting
 
         public override void OnUpdate()
         {
-            
+
         }
     }
 }
