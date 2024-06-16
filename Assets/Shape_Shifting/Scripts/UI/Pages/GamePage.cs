@@ -6,6 +6,8 @@ namespace ShapeShifting
     public class GamePage : PageBase
     {
         [SerializeField] GameObject m_EditorArea;
+        [SerializeField] GameObject m_GameUnloadButton;
+
 
         #region Game Signals Handling
 
@@ -35,10 +37,12 @@ namespace ShapeShifting
         private void onShapeEditingStarted()
         {
             m_EditorArea.SetActive(true);
+            m_GameUnloadButton.SetActive(false);
         }
         private void onShapeEditingEnded()
         {
             m_EditorArea.SetActive(false);
+            m_GameUnloadButton.SetActive(true);
         }
     }
 }

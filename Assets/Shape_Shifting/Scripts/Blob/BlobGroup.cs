@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 namespace ShapeShifting
 {
@@ -12,16 +13,42 @@ namespace ShapeShifting
         [SerializeField] private Blob m_DefaultBlobPrefab;
 
         [SerializeField] Transform m_GeometryCenter;
- 
+        [Inject]
+        SignalBus m_SignalBus;
+
         private void OnEnable()
         {
-            spawnDefaultBlob();
-            DisablePhysics();
+            m_SignalBus.Subscribe<GameStartedSignal>(factoryReset);
+            m_SignalBus.Subscribe<GameLoadedSignal>(factoryReset);
+            m_SignalBus.Subscribe<GameUnloadedSignal>(factoryReset);
+        }
+
+        private void OnDisable()
+        {
+            m_SignalBus.TryUnsubscribe<GameStartedSignal>(factoryReset);
+            m_SignalBus.TryUnsubscribe<GameLoadedSignal>(factoryReset);
+            m_SignalBus.TryUnsubscribe<GameUnloadedSignal>(factoryReset);
         }
 
         private void Update()
         {
             calculateGeometryCenter();
+        }
+
+
+        private void factoryReset()
+        {
+            for (int i = 0; i < m_Blobs.Count; i++)
+            {
+                if (m_Blobs[i])
+                    Destroy(m_Blobs[i].gameObject);
+            }
+
+            m_Blobs.Clear();
+            DisablePhysics();
+            transform.position = Vector3.zero;
+            spawnDefaultBlob();
+            gameObject.SetActive(true);
         }
 
         private void calculateGeometryCenter()
@@ -66,6 +93,9 @@ namespace ShapeShifting
         public void DisablePhysics()
         {
             m_Rigidbody.isKinematic = true;
+            m_Rigidbody.velocity = Vector2.zero;
+            m_Rigidbody.angularVelocity = 0;
+
         }
 
         private void calculateCenterOfMass()

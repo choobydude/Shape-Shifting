@@ -4,6 +4,7 @@
     {
         Grab,
         Erase,
-        Paint
+        Paint,
+        Explore,
     }
 }

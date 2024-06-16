@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154392097985fe844bb8efe489d63afd, type: 3}
+  m_Name: Explore Tool Model
+  m_EditorClassIdentifier: 
+  ToolData:
+    IsSelected: 1
+    ToolType: 3
+    Icon: {fileID: 21300000, guid: 7fe07287528d460448ff2ef4172fe945, type: 3}
+    NormalCursonTexture: {fileID: 2800000, guid: c253d950ae987434b852737b220e8b9f, type: 3}
+    PressedCursonTexture: {fileID: 2800000, guid: c253d950ae987434b852737b220e8b9f, type: 3}
+    SelectedColors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.41709685, g: 0.84155554, b: 0.8584906, a: 1}
+    DeselectedColors:
+    - {r: 0, g: 0, b: 0, a: 0.29803923}
+    - {r: 0, g: 0, b: 0, a: 0.29803923}
