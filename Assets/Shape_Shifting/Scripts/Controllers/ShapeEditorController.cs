@@ -29,14 +29,21 @@ namespace ShapeShifting
         private void subscribeSignals()
         {
             m_SignalBus.Subscribe<GameStartedSignal>(onGameStarted);
+            m_SignalBus.Subscribe<GameUnloadedSignal>(onGameUnload);
             m_SignalBus.Subscribe<ExitShapeEditorCommandSignal>(onExitShapeEditorCommand);
         }
         private void unsubscribeSignals()
         {
             m_SignalBus.TryUnsubscribe<GameStartedSignal>(onGameStarted);
+            m_SignalBus.TryUnsubscribe<GameUnloadedSignal>(onGameUnload);
             m_SignalBus.TryUnsubscribe<ExitShapeEditorCommandSignal>(onExitShapeEditorCommand);
         }
 
+        private void onGameUnload()
+        {
+            m_ShapeEditorCamera.Priority = 10;
+            m_ShapeFollowerCamera.Priority = 1;
+        }
         private void onGameStarted()
         {
             m_SignalBus.TryFire<ShapeEditorEnteredSignal>();

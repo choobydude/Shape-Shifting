@@ -42,7 +42,7 @@ namespace ShapeShifting
 
         private void setText(string i_LevelName)
         {
-            m_Text.text = m_TextPrefix + i_LevelName;
+            m_Text.text = m_TextPrefix + "<size=150%><color=white>"+i_LevelName+"</color></size>";
         }
         #endregion
     }

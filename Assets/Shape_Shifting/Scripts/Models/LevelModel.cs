@@ -76,10 +76,7 @@ namespace ShapeShifting
         public bool IsSelected;
         public bool Islocked;
 
-        public int SpawnPointCount;
-        [MinMaxSlider(0.2f, 2)] public Vector2 MinMaxSpawnInterval;
-        public Vector2 SpawnArea;
-        public float SpawnPointRadius;
+        public GameObject LevelPrefab;
     }
 }
 

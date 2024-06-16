@@ -47,6 +47,8 @@ namespace ShapeShifting
             m_Blobs.Clear();
             DisablePhysics();
             transform.position = Vector3.zero;
+            transform.rotation = Quaternion.identity;
+
             spawnDefaultBlob();
             gameObject.SetActive(true);
         }
