@@ -12,6 +12,8 @@ namespace ShapeShifting
         protected SignalBus SignalBus;
         [Inject(Id = "Main")]
         Camera m_Camera;
+        [Inject]
+        protected BlobGroup BlobGroup;
 
         private void fireSelectedEvent()
         {
@@ -80,6 +82,7 @@ namespace ShapeShifting
             return false;
         }
 
+       
 
         public abstract void OnSelect();
         public abstract void OnDeselect();

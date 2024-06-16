@@ -16,10 +16,15 @@ MonoBehaviour:
     IsSelected: 0
     ToolType: 1
     Icon: {fileID: 21300000, guid: 034501de977dca3488c3d130ee9912d5, type: 3}
-    CursonIcon: {fileID: 0}
+    NormalCursonTexture: {fileID: 0}
+    PressedCursonTexture: {fileID: 0}
     SelectedColors:
     - {r: 1, g: 1, b: 1, a: 1}
     - {r: 0.89433956, g: 0.2548024, b: 0.29172942, a: 1}
     DeselectedColors:
     - {r: 0, g: 0, b: 0, a: 0.29803923}
     - {r: 0, g: 0, b: 0, a: 0.29803923}
+  m_ErasePreviewPrefab: {fileID: 1229506951723740527, guid: 814fdc2ad1e1f6b4d81424a77f68cba8, type: 3}
+  m_MinScale: 1.5
+  m_MaxScale: 5.5
+  m_ScrollSensitivity: 4

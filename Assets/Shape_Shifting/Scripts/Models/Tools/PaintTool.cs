@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace ShapeShifting
 {
@@ -10,7 +11,9 @@ namespace ShapeShifting
         [SerializeField] Transform m_PreviewBlobPrefab;
         [SerializeField] float m_BlobMinScale, m_BlobMaxScale;
         [SerializeField] float m_ScrollSensitivity;
-
+        [SerializeField] float m_DistanceThreshold;
+        [Inject]
+        BlobGroup m_BlobGroup;
         Transform m_PreviewBlob;
 
         private void OnValidate()
@@ -29,7 +32,7 @@ namespace ShapeShifting
         {
             if (!m_PreviewBlob)
                 m_PreviewBlob = Instantiate(m_PreviewBlobPrefab);
-            
+
             m_PreviewBlob.gameObject.SetActive(true);
         }
 
@@ -58,7 +61,19 @@ namespace ShapeShifting
         }
         private void tryPaintBlob(Vector2 i_MouseWorldPosition)
         {
+            if (!m_PreviewBlob)
+                return;
 
+            Blob blob = m_BlobGroup.GetClosestBlob(i_MouseWorldPosition, m_PreviewBlob.transform.lossyScale.x, out float o_DistanceBetween);
+            if (o_DistanceBetween <= m_DistanceThreshold)
+                paintBlob(i_MouseWorldPosition);
+        }
+
+        private void paintBlob(Vector2 i_Position)
+        {
+            Blob blob = Instantiate(m_BlobPrefab);
+            blob.transform.position = i_Position;
+            m_BlobGroup.AddBlob(blob);
         }
 
         public override void OnMouseDown(Vector2 i_MouseWorldPosition)
@@ -68,7 +83,7 @@ namespace ShapeShifting
 
         public override void OnMouse(Vector2 i_MouseWorldPosition)
         {
-
+            tryPaintBlob(i_MouseWorldPosition);
         }
 
 
