@@ -11,7 +11,7 @@ namespace ShapeShifting
         [Inject]
         protected SignalBus SignalBus;
         [Inject(Id = "Main")]
-        Camera m_Camera;
+        protected Camera Camera;
         [Inject]
         protected BlobGroup BlobGroup;
 
@@ -35,7 +35,8 @@ namespace ShapeShifting
 
         public virtual void Update()
         {
-            MouseWorldPosition = m_Camera.ScreenToWorldPoint((Vector2)Input.mousePosition);
+            MouseWorldPreviousPosition = MouseWorldPosition;
+            MouseWorldPosition = Camera.ScreenToWorldPoint((Vector2)Input.mousePosition);
 
             if (Input.GetMouseButtonDown(0))
             {

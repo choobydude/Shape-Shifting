@@ -60,7 +60,7 @@ namespace ShapeShifting
             {
                 if (m_Blobs[i].CanBeErased)
                 {
-                    if (getEffectiveDistance(i_Position, m_Blobs[i].transform.position, i_Radius, m_Blobs[i].transform.lossyScale.x) <= 0)
+                    if (getEffectiveDistance(i_Position, m_Blobs[i].transform.position, i_Radius, m_Blobs[i].transform.localScale.x / 2f) <= 0)
                     {
                         RemoveBlob(m_Blobs[i]);
                         i--;
@@ -69,16 +69,10 @@ namespace ShapeShifting
             }
         }
 
-        public Blob GetClosestBlob(Vector2 i_SourcePosition, out float i_DistanceBetween)
-        {
-            Blob blob = m_Blobs.OrderBy(obj => Vector3.Distance(i_SourcePosition, obj.transform.position)).FirstOrDefault();
-            i_DistanceBetween = Vector2.Distance(blob.transform.position, i_SourcePosition);
-            return blob;
-        }
         public Blob GetClosestBlob(Vector2 _Source, float i_Radius, out float i_DistanceBetween)
         {
-            Blob blob = m_Blobs.OrderBy(blob => getEffectiveDistance(_Source, blob.transform.position, i_Radius, blob.transform.lossyScale.x)).FirstOrDefault();
-            i_DistanceBetween = Vector2.Distance(blob.transform.position, _Source);
+            Blob blob = m_Blobs.OrderBy(blob => getEffectiveDistance(_Source, blob.transform.position, i_Radius, blob.transform.localScale.x / 2f)).FirstOrDefault();
+            i_DistanceBetween = getEffectiveDistance(_Source, blob.transform.position, i_Radius, blob.transform.localScale.x / 2);
             return blob;
         }
 

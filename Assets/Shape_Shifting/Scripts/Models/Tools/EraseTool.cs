@@ -28,18 +28,19 @@ namespace ShapeShifting
                 m_ErasePreview = Instantiate(m_ErasePreviewPrefab);
 
             m_ErasePreview.gameObject.SetActive(true);
+            followCursor();
         }
         public override void Update()
         {
             base.Update();
             tryScalePreview();
-            followCursor(MouseWorldPosition);
+            followCursor();
         }
 
-        private void followCursor(Vector2 i_MouseWorldPosition)
+        private void followCursor()
         {
             if (m_ErasePreview)
-                m_ErasePreview.transform.position = i_MouseWorldPosition;
+                m_ErasePreview.transform.position = MouseWorldPosition;
         }
 
         private void tryScalePreview()
@@ -57,7 +58,7 @@ namespace ShapeShifting
             if (!m_ErasePreview)
                 return;
 
-            BlobGroup.EraseBlobsInRadius(i_MouseWorldPosition, m_ErasePreview.lossyScale.x/2);
+            BlobGroup.EraseBlobsInRadius(i_MouseWorldPosition, m_ErasePreview.localScale.x / 2);
         }
 
         public override void OnMouseDown(Vector2 i_MouseWorldPosition)

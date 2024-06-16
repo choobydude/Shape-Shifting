@@ -29,4 +29,4 @@ MonoBehaviour:
   m_BlobMinScale: 1.5
   m_BlobMaxScale: 5.5
   m_ScrollSensitivity: 10
-  m_DistanceThreshold: 4
+  m_DistanceThreshold: 0.02

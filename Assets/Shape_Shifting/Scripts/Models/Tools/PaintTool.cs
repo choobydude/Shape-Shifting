@@ -12,8 +12,6 @@ namespace ShapeShifting
         [SerializeField] float m_BlobMinScale, m_BlobMaxScale;
         [SerializeField] float m_ScrollSensitivity;
         [SerializeField] float m_DistanceThreshold;
-        [Inject]
-        BlobGroup m_BlobGroup;
         Transform m_PreviewBlob;
 
         private void OnValidate()
@@ -34,6 +32,7 @@ namespace ShapeShifting
                 m_PreviewBlob = Instantiate(m_PreviewBlobPrefab);
 
             m_PreviewBlob.gameObject.SetActive(true);
+            followCursor();
         }
 
         public override void Update()
@@ -41,7 +40,7 @@ namespace ShapeShifting
             base.Update();
 
             tryScalePreview();
-            followCursor(MouseWorldPosition);
+            followCursor();
         }
 
         private void tryScalePreview()
@@ -54,18 +53,18 @@ namespace ShapeShifting
             m_PreviewBlob.transform.localScale = Vector3.one * scale;
         }
 
-        private void followCursor(Vector2 i_MouseWorldPosition)
+        private void followCursor()
         {
             if (m_PreviewBlob)
-                m_PreviewBlob.transform.position = i_MouseWorldPosition;
+                m_PreviewBlob.transform.position = MouseWorldPosition;
         }
         private void tryPaintBlob(Vector2 i_MouseWorldPosition)
         {
             if (!m_PreviewBlob)
                 return;
 
-            Blob blob = m_BlobGroup.GetClosestBlob(i_MouseWorldPosition, m_PreviewBlob.transform.lossyScale.x, out float o_DistanceBetween);
-            if (o_DistanceBetween <= m_DistanceThreshold)
+            Blob blob = BlobGroup.GetClosestBlob(i_MouseWorldPosition, m_PreviewBlob.transform.localScale.x / 2, out float o_DistanceBetween);
+            if (Vector3.Distance(MouseWorldPosition, MouseWorldPreviousPosition) >= m_DistanceThreshold)
                 paintBlob(i_MouseWorldPosition);
         }
 
@@ -73,7 +72,9 @@ namespace ShapeShifting
         {
             Blob blob = Instantiate(m_BlobPrefab);
             blob.transform.position = i_Position;
-            m_BlobGroup.AddBlob(blob);
+            blob.transform.localScale = m_PreviewBlob.localScale;
+
+            BlobGroup.AddBlob(blob);
         }
 
         public override void OnMouseDown(Vector2 i_MouseWorldPosition)

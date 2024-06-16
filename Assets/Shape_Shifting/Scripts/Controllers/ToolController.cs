@@ -48,8 +48,7 @@ namespace ShapeShifting
         private void onEditingStarted()
         {
             m_SelectedTool = getSelectedTool();
-            if (!m_SelectedTool)
-                trySelectTool(eToolType.Paint);
+            trySelectTool(eToolType.Paint);
         }
         private void onEditingEnded()
         {

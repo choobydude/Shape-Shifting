@@ -15,6 +15,7 @@ namespace ShapeShifting
             Container.BindInterfacesAndSelfTo<ShapeEditorController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<UIController>().AsSingle().NonLazy();
 
+
             Container.BindExecutionOrder<UIController>(-10);
             Container.BindExecutionOrder<GameController>(-5);
         }
