@@ -29,6 +29,19 @@ namespace ShapeShifting
 
             m_ErasePreview.gameObject.SetActive(true);
         }
+        public override void Update()
+        {
+            base.Update();
+            tryScalePreview();
+            followCursor(MouseWorldPosition);
+        }
+
+        private void followCursor(Vector2 i_MouseWorldPosition)
+        {
+            if (m_ErasePreview)
+                m_ErasePreview.transform.position = i_MouseWorldPosition;
+        }
+
         private void tryScalePreview()
         {
             if (!m_ErasePreview)
@@ -39,6 +52,14 @@ namespace ShapeShifting
             m_ErasePreview.transform.localScale = Vector3.one * scale;
         }
 
+        private void tryErase(Vector2 i_MouseWorldPosition)
+        {
+            if (!m_ErasePreview)
+                return;
+
+            BlobGroup.EraseBlobsInRadius(i_MouseWorldPosition, m_ErasePreview.lossyScale.x/2);
+        }
+
         public override void OnMouseDown(Vector2 i_MouseWorldPosition)
         {
 
@@ -46,7 +67,7 @@ namespace ShapeShifting
 
         public override void OnMouse(Vector2 i_MouseWorldPosition)
         {
-
+            tryErase(i_MouseWorldPosition);
         }
 
 

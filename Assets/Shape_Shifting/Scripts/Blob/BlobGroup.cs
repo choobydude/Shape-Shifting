@@ -54,9 +54,19 @@ namespace ShapeShifting
 
         }
 
-        public void RemoveBlobsInRadius(Vector2 i_Position , float i_Radius)
+        public void EraseBlobsInRadius(Vector2 i_Position, float i_Radius)
         {
-
+            for (int i = 0; i < m_Blobs.Count; i++)
+            {
+                if (m_Blobs[i].CanBeErased)
+                {
+                    if (getEffectiveDistance(i_Position, m_Blobs[i].transform.position, i_Radius, m_Blobs[i].transform.lossyScale.x) <= 0)
+                    {
+                        RemoveBlob(m_Blobs[i]);
+                        i--;
+                    }
+                }
+            }
         }
 
         public Blob GetClosestBlob(Vector2 i_SourcePosition, out float i_DistanceBetween)
@@ -67,12 +77,12 @@ namespace ShapeShifting
         }
         public Blob GetClosestBlob(Vector2 _Source, float i_Radius, out float i_DistanceBetween)
         {
-            Blob blob = m_Blobs.OrderBy(blob => GetEffectiveDistance(_Source, blob.transform.position, i_Radius, blob.transform.lossyScale.x)).FirstOrDefault();
+            Blob blob = m_Blobs.OrderBy(blob => getEffectiveDistance(_Source, blob.transform.position, i_Radius, blob.transform.lossyScale.x)).FirstOrDefault();
             i_DistanceBetween = Vector2.Distance(blob.transform.position, _Source);
             return blob;
         }
 
-        float GetEffectiveDistance(Vector2 pos1, Vector2 pos2, float rad1, float rad2)
+        float getEffectiveDistance(Vector2 pos1, Vector2 pos2, float rad1, float rad2)
         {
             float centerDistance = Vector3.Distance(pos1, pos2);
             float edgeDistance = centerDistance - (rad1 + rad2);
